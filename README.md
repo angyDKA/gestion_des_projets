@@ -1,63 +1,57 @@
+# 📘 Projet JavaFX – Gestion de Projets Collaboratifs
 
-# 📋 Gestion de Tâches Collaboratives
+Ce projet est une application de bureau JavaFX permettant de **gérer des utilisateurs, des cours et des séances** dans le cadre d’un emploi du temps collaboratif.
 
-Application JavaFX de gestion de projets, de tâches et d’employés développée dans le cadre du module II.1102 – Projet Algorithmique et Programmation Java à l'ISEP.
+## 🧩 Fonctionnalités
 
-## 🚀 Présentation
+### 👤 Utilisateurs
+- CRUD (Créer, Lire, Mettre à jour, Supprimer)
+- Rôles (ENSEIGNANT, ÉTUDIANT, ADMINISTRATEUR)
+- Association et dissociation aux cours
 
-Cette application a pour objectif de faciliter la coordination d’équipe, la planification des projets et le suivi des tâches au sein d’une plateforme intuitive. Elle centralise les données liées aux projets, employés et tâches dans une base de données **MySQL (via phpMyAdmin)**.
+### 📚 Cours
+- Création/modification/suppression
+- Gestion des périodes de cours (début/fin)
+- Liaison avec utilisateurs et séances
+- Export CSV des participants
 
-## 🛠️ Fonctionnalités
+### 📅 Séances
+- Titre, description, date limite
+- Statut (TODO, IN_PROGRESS, DONE)
+- Priorité (Oui/Non)
+- Affichage en tableau, vue Kanban et vue calendrier
+- Liées à un cours
 
-- **Gestion des employés** : ajout, modification, suppression via interface JavaFX
-- **Gestion des projets** : création, assignation de membres, dates de début/fin
-- **Gestion des tâches** :
-  - Affectation à un employé
-  - Priorité, date limite, statut
-  - Vue **Kanban**
-  - Vue **Calendrier**
-- **Sauvegarde automatique** : données persistantes via base MySQL
-- **Architecture modulaire (MVC)** : séparation des vues (FXML), contrôleurs, modèles et DAO
+## ⚙️ Technologies utilisées
+- Java 2025
+- JavaFX 24
+- MySQL + JDBC
+- Architecture MVC
 
-## 📁 Architecture du projet
+## 📁 Structure du projet
 
 ```
 src/
-├── com.monapp.controller    # Contrôleurs JavaFX (interactions UI)
-├── com.monapp.model         # Classes métier : Employe, Projet, Tache, StatutTache
-├── com.monapp.dao           # Accès à la base de données (CRUD via JDBC MySQL)
-├── com.monapp.database      # Connexion MySQL via DatabaseConnection
-└── Main.java                # Point d’entrée JavaFX
+├── controller/        # Contrôleurs JavaFX
+├── model/             # Modèles métiers
+├── dao/               # Accès aux données (MySQL)
+├── database/          # Connexion JDBC
+└── Main.java          # Point d'entrée
+resources/
+└── fxml/              # Interfaces graphiques
 ```
 
-## 🧱 Technologies utilisées
+## 🚀 Lancer le projet
 
-- Java 17+
-- JavaFX + FXML
-- MySQL (via phpMyAdmin)
-- JDBC
-- Maven
-- IntelliJ IDEA
-
-## 🗃️ Base de données
-
-- Utilise **MySQL** (géré via phpMyAdmin)
-- Script SQL fourni pour la création des tables
-- Connexion via `DatabaseConnection.java`
-
-## 📌 Exemples d’améliorations envisagées
-
-- 🔔 Notifications de deadline
-- 🔐 Authentification multi-utilisateurs
-- ☁️ Hébergement cloud multi-accès
-- 💬 Chat intégré & partage de documents
-
-## 📷 Interfaces
-
-- Gestion des employés : tableau éditable
-- Gestion des projets : planification + membres
-- Gestion des tâches : vue Kanban + calendrier
-
+1. Lancer MySQL et créer la base `gestionprojets`
+2. Importer le script SQL fourni
+3. Modifier `DatabaseConnection.java` si besoin :
+```java
+private static final String URL = "jdbc:mysql://localhost:3306/gestionprojets";
+private static final String USER = "root";
+private static final String PASSWORD = "";
+```
+4. Ouvrir et exécuter `Main.java`
 ## 🧑🏽‍💻 Réalisé par
 
 - **Ange Nolwen DJUISSI KENMOE**
